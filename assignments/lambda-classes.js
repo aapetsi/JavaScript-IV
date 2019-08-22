@@ -67,3 +67,23 @@ class Student extends Person {
     
   }
 }
+
+class ProjectManager extends Instructor {
+  constructor(name, age, location, speciality, favLanguage, catchPhrase, gradClassName, favInstructor) {
+    super(name, age, location, speciality, favLanguage, catchPhrase);
+    this.gradClassName = gradClassName;
+    this.favInstructor = favInstructor;
+  }
+
+  standUp(slackChannel) {
+    return `${this.name} announces to ${slackChannel}, @channel standup time!`
+  }
+
+  debugsCode(studentObj, subject) {
+    return `${this.name} debugs ${studentObj.student}'s code on ${subject}`
+  }
+}
+
+const newPM = new ProjectManager("Apetsi", 28, "Accra")
+
+console.log(newPM);
