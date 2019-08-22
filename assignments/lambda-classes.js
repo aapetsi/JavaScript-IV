@@ -36,6 +36,11 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`
   }
+
+  addOrSubtractPoints(studentGrade) {
+    let points = Math.random();
+    return studentGrade + points;
+  }
 }
 
 const apetsi = new Instructor("Apetsi", 28, "Accra", "Software Development", "JavaScript", "JavaScript Rocks!!")
@@ -43,12 +48,12 @@ const apetsi = new Instructor("Apetsi", 28, "Accra", "Software Development", "Ja
 // console.log(apetsi.grade({name: "Apetsi"}, "english"))
 
 class Student extends Person {
-  constructor(name, age, location, previousBackground, className, favSubjects, grade) {
+  constructor(name, age, location, previousBackground, className, favSubjects) {
     super(name, age, location)
     this.previousBackground = previousBackground;
     this.className = className;
     this.favSubjects = favSubjects;
-    this.grade = grade;
+    this.grade = 85;
   }
 
   listsSubjects() {
@@ -64,7 +69,10 @@ class Student extends Person {
   }
 
   graduate() {
-    
+    if (this.grade > 70) {
+      return `Hurray, you are all set to graduate.`
+    } 
+    return `You haven't met the required score to graduate.`
   }
 }
 
@@ -86,4 +94,3 @@ class ProjectManager extends Instructor {
 
 const newPM = new ProjectManager("Apetsi", 28, "Accra")
 
-console.log(newPM);
